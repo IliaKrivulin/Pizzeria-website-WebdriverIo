@@ -1,0 +1,98 @@
+image: openjdk:23-ea-3-jdk-slim-bullseye
+
+stages:
+  - build
+  - development
+  - smoke-tests
+  - staging
+  - staging-switch
+  - regression-tests
+  - prod
+
+variables:
+  RUNNER: "students"
+
+build:
+  tags:
+    - '$RUNNER'
+  stage: build
+  before_script:
+    - apt update && apt install -y npm
+    - npm -v || (echo "npm version check failed" && exit 1)
+  script:
+    - echo $CI_JOB_NAME
+    - npm i
+  artifacts:
+    paths:
+      - node_modules
+      - package-lock.json
+
+development:
+  except:
+    - master
+    - /^release*/
+  tags:
+    - '$RUNNER'
+  stage: development
+  script:
+    - echo $CI_JOB_NAME
+
+staging:
+  only:
+    - /^release*/
+  tags:
+    - '$RUNNER'
+  stage: staging
+  script:
+    - echo $CI_JOB_NAME
+
+staging-switch:
+  only:
+    - /^release*/
+  tags:
+    - '$RUNNER'
+  stage: staging-switch
+  script:
+    - echo $CI_JOB_NAME
+
+smoke-tests:
+  except:
+    - master
+    - /^release*/
+  tags:
+    - '$RUNNER'
+  dependencies:
+    - build
+  stage: smoke-tests
+  services:
+    - selenium/standalone-chrome
+  before_script:
+    - apt update && apt install -y npm
+    - npm -v || (echo "npm version check failed" && exit 1)
+  script:
+    - npm run smoke-tests --host=selenium__standalone-chrome
+
+regression-tests:
+  only:
+    - /^release*/
+  tags:
+    - '$RUNNER'
+  dependencies:
+    - build
+  stage: regression-tests
+  services:
+    - selenium/standalone-chrome
+  before_script:
+    - apt update && apt install -y npm
+    - npm -v || (echo "npm version check failed" && exit 1)
+  script:
+    - npm run regression-tests --host=selenium__standalone-chrome
+
+prod:
+  only:
+    - master
+  tags:
+    - '$RUNNER'
+  stage: prod
+  script:
+    - echo $CI_JOB_NAME
