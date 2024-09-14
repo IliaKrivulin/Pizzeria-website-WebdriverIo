@@ -1,10 +1,10 @@
 describe('Pizzeria', () => {
 
     beforeEach(async () => {
-        await browser.url(`https://pizzeria.skillbox.cc/`)
+        await browser.url(`https://pizzeria.skillbox.cc/`);
     })
 
-    it('scenario1', async () => {
+    it.only('scenario1', async () => {
     
     const entranceButton = await $('div.login-woocommerce'); //Кнопка "войти"
     const usernameMyAccounField = await $('#username'); //Поле ввода имени пользователя или почты
@@ -31,75 +31,42 @@ describe('Pizzeria', () => {
     const sausageBoardFourInOnePizza = await $('[value="65.00"]'); //"Колбасный" борт для пиццы 4 в 1
     
     //авторизация
-    await new Promise((r) => setTimeout(r, 1000));
     entranceButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     usernameMyAccounField.click();
-    await new Promise((r) => setTimeout(r, 1000));
     usernameMyAccounField.setValue('Pizzeria');
-    await new Promise((r) => setTimeout(r, 1000));
     passwordMyAccountField.click();
-    await new Promise((r) => setTimeout(r, 1000));
     passwordMyAccountField.setValue('Pizzeria');
-    await new Promise((r) => setTimeout(r, 1000));
     entranceMeMyAccountButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     //о нас
     aboutUsButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
-    //акции
     promotionButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     //доставка и оплата
     deliveryAndPaymentButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     //просмотр и сортировка пиццы
     menuButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     pizzaMenuButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     sortingPizzaSelect.click();
-    await new Promise((r) => setTimeout(r, 1000));
     sortingPopularityPizzaSelect.click();
-    await new Promise((r) => setTimeout(r, 1000));
     //добавление десерта
     menuButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     dessertMenuButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     cinnamonBunToBasketButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     //добавление напитка
     menuButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     beveragesMenuButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     cappuccinoToBasketButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     //выбор бортов и добавление пиццы
     menuButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     pizzaMenuButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     fourInOnePizza.click();
-    await new Promise((r) => setTimeout(r, 1000));
     choosingAPizzaSideFourInOnePizza.click();
-    await new Promise((r) => setTimeout(r, 1000));
     sausageBoardFourInOnePizza.click();
-    await new Promise((r) => setTimeout(r, 1000));
     fourInOnePizzaToBasketButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     //переход в корзину и применение купона
-    baskethomeButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     couponCodeBasketField.click();
-    await new Promise((r) => setTimeout(r, 1000));
     couponCodeBasketField.setValue('GIVEMEHALYAVA');
-    await new Promise((r) => setTimeout(r, 1000));
     applyCouponBasketButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     baskethomeButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     //проверка уменьшения суммы на 10%
     expect($(sumBasketText)).toHaveText('688,50');
     });
@@ -132,78 +99,46 @@ describe('Pizzeria', () => {
     const inscriptionInvalidCoupon = await $('ul.woocommerce-error > li'); //надпись "неверный купон"    
 
     //авторизация
-    await new Promise((r) => setTimeout(r, 1000));
     entranceButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     usernameMyAccounField.click();
-    await new Promise((r) => setTimeout(r, 1000));
     usernameMyAccounField.setValue('Pizzeria');
-    await new Promise((r) => setTimeout(r, 1000));
     passwordMyAccountField.click();
-    await new Promise((r) => setTimeout(r, 1000));
     passwordMyAccountField.setValue('Pizzeria');
-    await new Promise((r) => setTimeout(r, 1000));
     entranceMeMyAccountButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     //о нас
     aboutUsButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     //акции
     promotionButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     //доставка и оплата
     deliveryAndPaymentButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     //просмотр и сортировка пиццы
     menuButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     pizzaMenuButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     sortingPizzaSelect.click();
-    await new Promise((r) => setTimeout(r, 1000));
     sortingPopularityPizzaSelect.click();
-    await new Promise((r) => setTimeout(r, 1000));
     //добавление десерта
     menuButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     dessertMenuButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     cinnamonBunToBasketButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     //добавление напитка
     menuButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     beveragesMenuButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     cappuccinoToBasketButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     //выбор бортов и добавление пиццы
     menuButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     pizzaMenuButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     fourInOnePizza.click();
-    await new Promise((r) => setTimeout(r, 1000));
     choosingAPizzaSideFourInOnePizza.click();
-    await new Promise((r) => setTimeout(r, 1000));
     sausageBoardFourInOnePizza.click();
-    await new Promise((r) => setTimeout(r, 1000));
     fourInOnePizzaToBasketButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     //переход в корзину и применение купона
     baskethomeButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     couponCodeBasketField.click();
-    await new Promise((r) => setTimeout(r, 1000));
     couponCodeBasketField.setValue('DC120');
-    await new Promise((r) => setTimeout(r, 1000));
     applyCouponBasketButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     baskethomeButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     //проверка что сумма не уменьшилась на 10%
     expect($(sumBasketText)).toHaveText('765,00');
-    await new Promise((r) => setTimeout(r, 1000));
     expect($(inscriptionInvalidCoupon)).toHaveText('Неверный купон.');
 });
  
@@ -235,75 +170,43 @@ describe('Pizzeria', () => {
     const inscriptionInvalidCoupon = await $('ul.woocommerce-error > li'); //надпись "неверный купон"    
     
     //авторизация
-    await new Promise((r) => setTimeout(r, 1000));
     entranceButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     usernameMyAccounField.click();
-    await new Promise((r) => setTimeout(r, 1000));
     usernameMyAccounField.setValue('Pizzeria');
-    await new Promise((r) => setTimeout(r, 1000));
     passwordMyAccountField.click();
-    await new Promise((r) => setTimeout(r, 1000));
     passwordMyAccountField.setValue('Pizzeria');
-    await new Promise((r) => setTimeout(r, 1000));
-    entranceMeMyAccountButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     //о нас
     aboutUsButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     //акции
     promotionButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     //доставка и оплата
     deliveryAndPaymentButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     //просмотр и сортировка пиццы
     menuButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     pizzaMenuButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     sortingPizzaSelect.click();
-    await new Promise((r) => setTimeout(r, 1000));
     sortingPopularityPizzaSelect.click();
-    await new Promise((r) => setTimeout(r, 1000));
     //добавление десерта
     menuButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     dessertMenuButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     cinnamonBunToBasketButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     //добавление напитка
     menuButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     beveragesMenuButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     cappuccinoToBasketButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     //выбор бортов и добавление пиццы
     menuButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     pizzaMenuButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     fourInOnePizza.click();
-    await new Promise((r) => setTimeout(r, 1000));
     choosingAPizzaSideFourInOnePizza.click();
-    await new Promise((r) => setTimeout(r, 1000));
     sausageBoardFourInOnePizza.click();
-    await new Promise((r) => setTimeout(r, 1000));
     fourInOnePizzaToBasketButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     //переход в корзину и применение купона
     baskethomeButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     couponCodeBasketField.click();
-    await new Promise((r) => setTimeout(r, 1000));
     couponCodeBasketField.setValue('GIVEMEHALYVA');
-    await new Promise((r) => setTimeout(r, 1000));
     applyCouponBasketButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     baskethomeButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     //проверка что сумма не уменьшилась на 10%
     expect($(sumBasketText)).toHaveText('765,00');
     });
@@ -350,156 +253,86 @@ describe('Pizzeria', () => {
     const inscriptionInvalidCoupon = await $('ul.woocommerce-error > li'); //надпись "неверный купон"
 
     //авторизация
-    await new Promise((r) => setTimeout(r, 1000));
     entranceButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     usernameMyAccounField.click();
-    await new Promise((r) => setTimeout(r, 1000));
     usernameMyAccounField.setValue('Pizzeria');
-    await new Promise((r) => setTimeout(r, 1000));
     passwordMyAccountField.click();
-    await new Promise((r) => setTimeout(r, 1000));
     passwordMyAccountField.setValue('Pizzeria');
-    await new Promise((r) => setTimeout(r, 1000));
     entranceMeMyAccountButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     //о нас
     aboutUsButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     //акции
     promotionButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     //доставка и оплата
     deliveryAndPaymentButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     //просмотр и сортировка пиццы
     menuButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     pizzaMenuButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     sortingPizzaSelect.click();
-    await new Promise((r) => setTimeout(r, 1000));
     sortingPopularityPizzaSelect.click();
-    await new Promise((r) => setTimeout(r, 1000));
     //добавление десерта
     menuButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     dessertMenuButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     cinnamonBunToBasketButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     //добавление напитка
     menuButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     beveragesMenuButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     cappuccinoToBasketButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     //выбор бортов и добавление пиццы
     menuButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     pizzaMenuButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     fourInOnePizza.click();
-    await new Promise((r) => setTimeout(r, 1000));
     choosingAPizzaSideFourInOnePizza.click();
-    await new Promise((r) => setTimeout(r, 1000));
     sausageBoardFourInOnePizza.click();
-    await new Promise((r) => setTimeout(r, 1000));
     fourInOnePizzaToBasketButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     //переход в корзину и применение купона
     baskethomeButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     couponCodeBasketField.click();
-    await new Promise((r) => setTimeout(r, 1000));
     couponCodeBasketField.setValue('GIVEMEHALYAVA');
-    await new Promise((r) => setTimeout(r, 1000));
     applyCouponBasketButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     baskethomeButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     //Оформление заказа
     goToPaymentBasketButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     addressOrderField.click();
-    await new Promise((r) => setTimeout(r, 1000));
     addressOrderField.setValue('test');
-    await new Promise((r) => setTimeout(r, 1000));
     cityOrderField.click();
-    await new Promise((r) => setTimeout(r, 1000));
     cityOrderField.setValue('test');
-    await new Promise((r) => setTimeout(r, 1000));
     billingStateOrderField.click();
-    await new Promise((r) => setTimeout(r, 1000));
     billingStateOrderField.setValue('test');
-    await new Promise((r) => setTimeout(r, 1000));
     postcodeOrderField.click();
-    await new Promise((r) => setTimeout(r, 1000));
     postcodeOrderField.setValue('199198');
-    await new Promise((r) => setTimeout(r, 1000));
     phoneOrderField.click();
-    await new Promise((r) => setTimeout(r, 1000));
     phoneOrderField.setValue('+79998887766');
-    await new Promise((r) => setTimeout(r, 1000));
     commentsOrderField.click();
-    await new Promise((r) => setTimeout(r, 1000));
     commentsOrderField.setValue('Позвонить за 30 минут');
-    await new Promise((r) => setTimeout(r, 1000));
     paymentOnDeliveryOrderRadioButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     acceptTheTermsOrderCheckbox.click();
-    await new Promise((r) => setTimeout(r, 1000));
     placeOrderOrderButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     //Оформление второго заказа с тем же промокодом
     menuButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     beveragesMenuButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     cappuccinoToBasketButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     baskethomeButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     couponCodeBasketField.click();
-    await new Promise((r) => setTimeout(r, 1000));
     couponCodeBasketField.setValue('GIVEMEHALYAVA');
-    await new Promise((r) => setTimeout(r, 1000));
     applyCouponBasketButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     baskethomeButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     //Оформление заказа
     goToPaymentBasketButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     addressOrderField.click();
-    await new Promise((r) => setTimeout(r, 1000));
     addressOrderField.setValue('test');
-    await new Promise((r) => setTimeout(r, 1000));
     cityOrderField.click();
-    await new Promise((r) => setTimeout(r, 1000));
     cityOrderField.setValue('test');
-    await new Promise((r) => setTimeout(r, 1000));
     billingStateOrderField.click();
-    await new Promise((r) => setTimeout(r, 1000));
     billingStateOrderField.setValue('test');
-    await new Promise((r) => setTimeout(r, 1000));
     postcodeOrderField.click();
-    await new Promise((r) => setTimeout(r, 1000));
     postcodeOrderField.setValue('199198');
-    await new Promise((r) => setTimeout(r, 1000));
     phoneOrderField.click();
-    await new Promise((r) => setTimeout(r, 1000));
     phoneOrderField.setValue('+79998887766');
-    await new Promise((r) => setTimeout(r, 1000));
     commentsOrderField.click();
-    await new Promise((r) => setTimeout(r, 1000));
     commentsOrderField.setValue('Позвонить за 30 минут');
-    await new Promise((r) => setTimeout(r, 1000));
     paymentOnDeliveryOrderRadioButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     acceptTheTermsOrderCheckbox.click();
-    await new Promise((r) => setTimeout(r, 1000));
     placeOrderOrderButton.click();
    });
 
@@ -516,39 +349,23 @@ describe('Pizzeria', () => {
     const successfulCardRegistrationbonusProgram = await $('#bonus_main > h3'); //Надпись "Успешное оформление карты"
 
     //авторизация
-    await new Promise((r) => setTimeout(r, 1000));
     entranceButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     usernameMyAccounField.click();
-    await new Promise((r) => setTimeout(r, 1000));
     usernameMyAccounField.setValue('Pizzeria');
-    await new Promise((r) => setTimeout(r, 1000));
     passwordMyAccountField.click();
-    await new Promise((r) => setTimeout(r, 1000));
     passwordMyAccountField.setValue('Pizzeria');
-    await new Promise((r) => setTimeout(r, 1000));
     entranceMeMyAccountButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     //Переход в бонусную программу и оформление карты
     bonusProgramButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     bonusProgramUsernameField.click();
-    await new Promise((r) => setTimeout(r, 1000));
     bonusProgramUsernameField.setValue('Pizzeria');
-    await new Promise((r) => setTimeout(r, 1000));
     bonusProgramPhoneField.click();
-    await new Promise((r) => setTimeout(r, 1000));
     bonusProgramPhoneField.setValue('+75556664422');
-    await new Promise((r) => setTimeout(r, 1000));
     bonusProgramApplyForACardButton.click();
-    await new Promise((r) => setTimeout(r, 1000));
     browser.acceptAlert()
-    await new Promise((r) => setTimeout(r, 5000));
     //проверка полей ввода
     expect($(bonusProgramUsernameField)).toHaveText('Pizzeria');
-    await new Promise((r) => setTimeout(r, 1000));
     expect($(bonusProgramPhoneField)).toHaveText('+75556664422');
-    await new Promise((r) => setTimeout(r, 1000));
     //Проверка успешного оформления карты
     expect($(successfulCardRegistrationbonusProgram)).toHaveText('Ваша карта оформлена!');
     });
